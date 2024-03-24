@@ -2,16 +2,14 @@ import {createContext, useState} from "react";
 
 const AuthContext = createContext()
 
-
-
 const UserAuth = ({children}) => {
 
-    const [] = useState()
+    const [userId, setUserName] = useState('')
 
 
 
     return (
-        <AuthContext.Provider value={[]}>
+        <AuthContext.Provider value={{ userId }}>
             {children}
         </AuthContext.Provider>
     )

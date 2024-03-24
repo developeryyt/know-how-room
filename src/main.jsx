@@ -2,8 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import {BrowserRouter as Router} from "react-router-dom";
 
-import UserAuth from "./context/AuthContext.js";
-import LoginPage from "./pages/login/Login.page.js";
+import UserAuth from "./context/AuthContext.jsx";
+import LoginPage from "./pages/login/Login.page.jsx";
 
 
 import './style/index.css'
