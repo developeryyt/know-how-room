@@ -24,3 +24,10 @@ html,body {
     top: 50%;
     transform: translate(-50%, -50%);
 }
+
+.ipt {
+    min-height: 32px;
+    border-width: 1px;
+    padding: 0 12px;
+    border-radius: 6px;
+}
