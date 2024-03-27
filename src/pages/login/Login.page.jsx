@@ -1,4 +1,5 @@
 import {useFormik} from "formik";
+import {memo} from "react";
 
 
 
@@ -27,7 +28,9 @@ const LoginPage = () => {
                 }}>
 
                     <div className='flex flex-col'>
-
+                        <h1>
+                           KNOW-HOW
+                        </h1>
                         <div className='pb-24'>
                             <label className='block pr-12 pb-4 text-14 font-500'>아이디</label>
                             <input
@@ -67,4 +70,4 @@ const LoginPage = () => {
 }
 
 
-export default LoginPage
+export default memo(LoginPage)
