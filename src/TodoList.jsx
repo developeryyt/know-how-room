@@ -1,8 +1,13 @@
 import {memo} from "react";
+import {useSelector} from "react-redux";
 
-const TodoList = ({ list }) => {
+const TodoList = () => {
 
-    console.log(list, 'todolist')
+    // console.log(list, 'todolist')
+
+    const list = useSelector(state => state.todo)
+
+    console.log(list)
 
     return (
         <>
@@ -18,4 +23,4 @@ const TodoList = ({ list }) => {
     )
 }
 
-export default memo(TodoList, (prevProps, nextProps) => nextProps.list.length === prevProps.list.length)
+export default memo(TodoList)

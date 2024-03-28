@@ -10,7 +10,7 @@ import './style/index.css'
 import KnowDate from "./components/common/KnowDate.jsx";
 import {Provider} from "react-redux";
 import ReduxTodo from "./ReduxTodo.jsx";
-import {createStore} from "redux";
+import {applyMiddleware, createStore} from "redux";
 import {todoReducer} from "./todoSlice.js";
 
 const _root = document.getElementById('root')
@@ -25,8 +25,20 @@ const loggerMiddleware = store => next => action => {
 };
 
 
+const composeEnhancers =
+    typeof window === 'object' &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
+        window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+            // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
+        }) : compose;
 
-const store = createStore(todoReducer)
+const enhancer = composeEnhancers(
+    applyMiddleware(loggerMiddleware),
+    // other store enhancers if any
+);
+
+
+const store = createStore(todoReducer, enhancer)
 
 const App = () => {
 

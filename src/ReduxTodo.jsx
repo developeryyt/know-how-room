@@ -11,8 +11,8 @@ function reducer(state, action) {
 
         case 'WRITE_TODO':
             return {
-                ...state,
-                val: action?.nextValue
+                val: action?.nextValue,
+                todo: [...state['todo']],
             }
 
 
@@ -82,7 +82,7 @@ const ReduxTodo = () => {
                 }}>만들기</button>
             </div>
             <ul>
-                {/*<TodoList list={state.todoList} />*/}
+                <TodoList />
             </ul>
         </div>
     )
