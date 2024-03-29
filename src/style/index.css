@@ -9,8 +9,20 @@ html,body {
     height: 100%;
 }
 
+input {
+    outline: none;
+}
+
 #root {
     height: 100%;
+}
+
+button {
+    padding: 0;
+    margin: 0;
+    cursor:pointer;
+    box-sizing: border-box;
+
 }
 
 .App {
@@ -25,9 +37,40 @@ html,body {
     transform: translate(-50%, -50%);
 }
 
+
+
 .ipt {
-    min-height: 32px;
+    width: 100%;
+    min-height: 34px;
     border-width: 1px;
     padding: 0 12px;
     border-radius: 6px;
+    @apply text-14 text-zinc-700
+}
+
+.ipt:focus {
+    @apply outline outline-gray-950 outline-2
+}
+
+.ipt::placeholder {
+
+}
+
+
+.btn {
+    width: 100%;
+    min-height: 36px;
+
+}
+
+.ty_submit {
+    @apply rounded bg-black/80 px-2 py-1 text-base font-semibold text-white shadow-sm hover:bg-black/50
+}
+
+.ty_cancel {
+
+}
+
+.ty_confirm {
+
 }
