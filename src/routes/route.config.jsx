@@ -4,7 +4,7 @@ const HomePage = lazy(() => import('../pages/home/Home.page'))
 const LoginPage = lazy(() => import('../pages/login/Login.page'))
 const SignUpPage = lazy(() => import('../pages/signup/SignUp.Page'))
 
-const ROUTES_CONFIG = [
+export const ROUTES_CONFIG = [
     {
         id: 'HomePage',
         path: '/',

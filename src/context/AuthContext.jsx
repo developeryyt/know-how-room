@@ -4,12 +4,11 @@ const AuthContext = createContext()
 
 const UserAuth = ({children}) => {
 
-    const [userId, setUserName] = useState('')
 
 
 
     return (
-        <AuthContext.Provider value={{ userId }}>
+        <AuthContext.Provider value={[]}>
             {children}
         </AuthContext.Provider>
     )
