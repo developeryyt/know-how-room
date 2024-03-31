@@ -1,18 +1,16 @@
-import React, {Suspense, useCallback, useEffect, useState} from 'react'
+import React, {Suspense} from 'react'
 import ReactDOM from 'react-dom/client'
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 
 import UserAuth from "./context/AuthContext.jsx";
-import LoginPage from "./pages/login/Login.page.jsx";
 
 
 import './style/index.css'
-import KnowDate from "./components/common/KnowDate.jsx";
 import {Provider} from "react-redux";
-import ReduxTodo from "./ReduxTodo.jsx";
 import {applyMiddleware, compose, createStore} from "redux";
 import {todoReducer} from "./todoSlice.js";
 import {ROUTES_CONFIG} from "./routes/route.config.jsx";
+import HeaderTemplate from "./components/layout/header/HeaderTemplate.jsx";
 
 const _root = document.getElementById('root')
 
@@ -46,6 +44,7 @@ const App = () => {
     return (
         <div className='App'>
             <Suspense fallback={<div>Loading...</div>}>
+                {!['/login', '/signup'].includes(location.pathname) && <HeaderTemplate/>}
                 <Routes>
                     {
                         ROUTES_CONFIG?.map((route) => {

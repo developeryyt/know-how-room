@@ -4,6 +4,10 @@ const HomePage = lazy(() => import('../pages/home/Home.page'))
 const LoginPage = lazy(() => import('../pages/login/Login.page'))
 const SignUpPage = lazy(() => import('../pages/signup/SignUp.Page'))
 
+
+const HeaderTemplate = lazy(() => import('../components/layout/header/HeaderTemplate.jsx'))
+
+
 export const ROUTES_CONFIG = [
     {
         id: 'HomePage',
@@ -21,3 +25,4 @@ export const ROUTES_CONFIG = [
         element: <SignUpPage />
     }
 ]
+
