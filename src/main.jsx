@@ -12,6 +12,9 @@ import {todoReducer} from "./todoSlice.js";
 import {ROUTES_CONFIG} from "./routes/route.config.jsx";
 import HeaderTemplate from "./components/layout/header/HeaderTemplate.jsx";
 
+
+import './utils/i18n'
+
 const _root = document.getElementById('root')
 
 

@@ -12,17 +12,20 @@ export const ROUTES_CONFIG = [
     {
         id: 'HomePage',
         path: '/',
-        element: <HomePage />
+        element: <HomePage />,
+        desc: 'Home'
     },
     {
         id: 'LoginPage',
         path: '/login',
-        element: <LoginPage />
+        element: <LoginPage />,
+        desc: 'login',
     },
     {
         id: 'SignUpPage',
         path: '/signup',
-        element: <SignUpPage />
+        element: <SignUpPage />,
+        desc: 'signup'
     }
 ]
 

@@ -7,7 +7,7 @@ const HeaderTemplate = () => {
 
 
     return (
-        <header className='px-20 py-10'>
+        <header className='relative px-20 py-10'>
             <SideBar />
         </header>
     );
