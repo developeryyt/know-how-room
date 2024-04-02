@@ -14,6 +14,7 @@ import HeaderTemplate from "./components/layout/header/HeaderTemplate.jsx";
 
 
 import './utils/i18n'
+import {ErrorBoundary} from "react-error-boundary";
 
 const _root = ReactDOM.createRoot(document.getElementById('root'))
 
@@ -64,12 +65,14 @@ const App = () => {
 
 
 _root.render(
-    <Router>
-        <UserAuth>
-            <Provider store={store}>
-                <App/>
-            </Provider>
-        </UserAuth>
-    </Router>
+    <ErrorBoundary fallback={<div>ErrorBoundary....</div>}>
+        <Router>
+            <UserAuth>
+                <Provider store={store}>
+                    <App/>
+                </Provider>
+            </UserAuth>
+        </Router>
+    </ErrorBoundary>
 )
 
