@@ -18,7 +18,7 @@ const SidebarList = () => {
             {
                 navArr.map((list) => {
                     return (
-                        <li key={`nav__${list['id']}`}>
+                        <li key={`nav__${list['id']}`} className='pb-12 last:pb-0'>
                             <NavLink to={list['path']} >
                                 {t(list['desc'])}
                             </NavLink>

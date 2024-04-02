@@ -25,7 +25,7 @@ const NavBar = styled.nav`
   background-color: white;
   height: 100%;
   width: 50%;
-  ${tw`p-20 transition-all duration-150`}
+  ${tw`px-20 py-10 transition-all duration-150`}
 `
 
 
@@ -60,9 +60,11 @@ const SideBar = () => {
                             <IoIosClose className='w-26 h-26 inline-block' />
                         </button>
                     </div>
-                    <ul>
-                        <SidebarList/>
-                    </ul>
+                    <div className='pt-12'>
+                        <ul>
+                            <SidebarList/>
+                        </ul>
+                    </div>
                 </NavBar>
             </NavWrapper>
         </>

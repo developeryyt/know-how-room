@@ -16,6 +16,12 @@ export const ROUTES_CONFIG = [
         desc: 'Home'
     },
     {
+        id: 'HomePage',
+        path: '/',
+        element: <HomePage />,
+        desc: 'MY KNOW-HOW'
+    },
+    {
         id: 'LoginPage',
         path: '/login',
         element: <LoginPage />,
