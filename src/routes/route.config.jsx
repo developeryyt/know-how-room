@@ -1,4 +1,5 @@
 import {lazy} from "react";
+import MakeKnowhow from "../pages/knowhow/MakeKnowhow.jsx";
 
 const HomePage = lazy(() => import('../pages/home/Home.page'))
 const LoginPage = lazy(() => import('../pages/login/Login.page'))
@@ -16,7 +17,7 @@ export const ROUTES_CONFIG = [
     {
         id: 'KNOWHOWPAGE',
         path: '/know-how',
-        element: <></>,
+        element: <MakeKnowhow/>,
         desc: 'MY KNOW-HOW'
     },
     {

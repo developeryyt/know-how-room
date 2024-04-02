@@ -1,6 +1,6 @@
-import React, {Suspense} from 'react'
+import React, {Suspense, useEffect, useState} from 'react'
 import ReactDOM from 'react-dom/client'
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes, useLocation, useParams, useSearchParams} from "react-router-dom";
 
 import UserAuth from "./context/AuthContext.jsx";
 
@@ -45,10 +45,11 @@ const store = createStore(todoReducer, enhancer)
 
 const App = () => {
 
+
     return (
         <div className='App'>
             <Suspense fallback={<div>Loading...</div>}>
-                {!['/login', '/signup'].includes(location.pathname) && <HeaderTemplate/>}
+                <HeaderTemplate/>
                 <div className='container'>
                     <Routes>
                         {
