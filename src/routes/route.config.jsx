@@ -5,8 +5,6 @@ const LoginPage = lazy(() => import('../pages/login/Login.page'))
 const SignUpPage = lazy(() => import('../pages/signup/SignUp.Page'))
 
 
-const HeaderTemplate = lazy(() => import('../components/layout/header/HeaderTemplate.jsx'))
-
 
 export const ROUTES_CONFIG = [
     {
@@ -16,9 +14,9 @@ export const ROUTES_CONFIG = [
         desc: 'Home'
     },
     {
-        id: 'HomePage',
-        path: '/',
-        element: <HomePage />,
+        id: 'KNOWHOWPAGE',
+        path: '/know-how',
+        element: <></>,
         desc: 'MY KNOW-HOW'
     },
     {

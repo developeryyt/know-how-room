@@ -1,17 +1,11 @@
 const Home = () => {
 
-    const DUMMY_DATA = [
-        {
-          id: '',
-          desc: '',
-        },
-    ]
-
 
     return (
-        <div>
-
-        </div>
+        <section>
+            {/*  TODO: 데이트 피커 (날짜별로 보기) */}
+            {/*  TODO: 조회수  */}
+        </section>
     )
 }
 

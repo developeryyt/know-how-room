@@ -1,10 +1,9 @@
 import {RiMenuFoldLine} from "react-icons/ri";
-import {ROUTES_CONFIG} from "../../../routes/route.config.jsx";
 import SidebarList from "./SidebarList.jsx";
 import styled from "styled-components";
 import tw from "twin.macro";
 import {IoIosClose} from "react-icons/io";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 // display: ${({ onOpen }) => onOpen ? "block" : "none"};
 const NavWrapper = styled.div`
@@ -12,15 +11,18 @@ const NavWrapper = styled.div`
   position: fixed;
   left: 0;
   top: 0;
-  width: ${({onOpen}) => onOpen ? '50%' : '0%'};
+  width: ${({ open }) => open ? "50%" : '0%'};
   height: 100%;
   background-color: rgba(0, 0, 0, .24);
   ${tw`transition-all duration-150`}
+  nav {
+    right: ${({ open }) => open ? '0%': '-100%'}
+  }
 `
 
 const NavBar = styled.nav`
+  z-index: 105;
   position: fixed;
-  right: ${({ onOpen }) => onOpen ? "0%" : "-100%"};
   top: 0;
   background-color: white;
   height: 100%;
@@ -37,6 +39,7 @@ const SideBar = () => {
         isOpenNav(prev => !prev)
     }
 
+
     return (
         <>
             <div className="flex justify-end">
@@ -48,8 +51,8 @@ const SideBar = () => {
                     <RiMenuFoldLine className='w-25 h-25 inline-block' />
                 </button>
             </div>
-            <NavWrapper onOpen={openNav}>
-                <NavBar onOpen={openNav}>
+            <NavWrapper open={openNav}>
+                <NavBar>
                     <div className="flex justify-end">
                         <button
                             type='button'
@@ -62,7 +65,7 @@ const SideBar = () => {
                     </div>
                     <div className='pt-12'>
                         <ul>
-                            <SidebarList/>
+                            <SidebarList navHandler={navHandler}/>
                         </ul>
                     </div>
                 </NavBar>
