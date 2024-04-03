@@ -1,6 +1,7 @@
 import KnowHowList from "../knowhow/KnowHowList.jsx";
 import styled from "styled-components";
 import tw from "twin.macro";
+import ListWrapper from "../list/ListWrapper.jsx";
 
 
 const PageWrapper = styled.section`
@@ -16,7 +17,11 @@ const Home = () => {
             {/*  TODO: 조회수  */}
 
             {/* TODO: 리스트   */}
-            <KnowHowList />
+            {/*<KnowHowList />*/}
+
+            <ListWrapper />
+
+
         </PageWrapper>
     )
 }

@@ -50,7 +50,7 @@ const App = () => {
         <div className='App'>
             <Suspense fallback={<div>Loading...</div>}>
                 <HeaderTemplate/>
-                <div className='container'>
+                <div className="container m-auto">
                     <Routes>
                         {
                             ROUTES_CONFIG?.map((route) => {

@@ -1,6 +1,8 @@
 import { createEditor } from 'slate'
 import {Slate, withReact, Editable } from "slate-react";
 import {useMemo} from "react";
+import i18n from "../../utils/i18n.js";
+import {useTranslation} from "react-i18next";
 
 
 const initialValue = [
@@ -12,15 +14,16 @@ const initialValue = [
 
 const MakeKnowhow = () => {
 
+    const { t } = useTranslation()
     const editor = useMemo(() => withReact(createEditor()), [])
 
     return (
         <>
-            <div>
+            <div className='text-right'>
                 <button
                     onClick={() => {}}
                     type='button'
-                >이전으로</button>
+                >{t("GO BACK")}</button>
             </div>
             <Slate editor={editor} initialValue={initialValue}>
                 <Editable />
