@@ -1,20 +1,22 @@
-import React, {Suspense, useEffect, useState} from 'react'
+import React, {Suspense} from 'react'
 import ReactDOM from 'react-dom/client'
-import {BrowserRouter as Router, Route, Routes, useLocation, useParams, useSearchParams} from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 
 import UserAuth from "./context/AuthContext.jsx";
 
 
 import './style/index.css'
 import {Provider} from "react-redux";
-import {applyMiddleware, compose, createStore} from "redux";
-import {todoReducer} from "./todoSlice.js";
+import {applyMiddleware, compose} from "redux";
 import {ROUTES_CONFIG} from "./routes/route.config.jsx";
 import HeaderTemplate from "./components/layout/header/HeaderTemplate.jsx";
 
 
 import './utils/i18n'
 import {ErrorBoundary} from "react-error-boundary";
+import {configureStore} from "@reduxjs/toolkit";
+
+import Slices from './store'
 
 const _root = ReactDOM.createRoot(document.getElementById('root'))
 
@@ -41,7 +43,11 @@ const enhancer = composeEnhancers(
 );
 
 
-const store = createStore(todoReducer, enhancer)
+const store = configureStore({
+    reducer: {
+        ...Slices
+    }
+}, enhancer)
 
 const App = () => {
 

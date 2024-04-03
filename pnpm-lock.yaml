@@ -26,6 +26,9 @@ dependencies:
   i18next-browser-languagedetector:
     specifier: ^7.2.1
     version: 7.2.1
+  prop-types:
+    specifier: ^15.8.1
+    version: 15.8.1
   react:
     specifier: ^18.2.0
     version: 18.2.0
