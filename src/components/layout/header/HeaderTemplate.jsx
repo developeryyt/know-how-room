@@ -19,6 +19,7 @@ const HeaderTemplate = () => {
                 return
 
             default:
+                setFlag(false)
                 return
         }
 
