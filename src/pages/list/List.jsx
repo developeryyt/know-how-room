@@ -64,6 +64,7 @@ const List = () => {
                                         <dl>
                                             <dt>{list['title']}</dt>
                                             <dd>{list['desc']['conts']}</dd>
+                                            <dd>최종수정알: {list['desc']['itCreate']}</dd>
                                         </dl>
                                     </div>
                                 </Link>
