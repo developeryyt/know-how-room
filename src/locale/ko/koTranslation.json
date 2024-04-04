@@ -1,5 +1,10 @@
 {
   "Home": "홈으로",
   "MY KNOW-HOW": "나만의 노하우작성하기",
-  "GO BACK": "돌아가기"
+  "GO BACK": "돌아가기",
+  "Inquiry": "조회순",
+  "Stored": "보관함",
+  "The Newest": "최신순",
+  "The Oldest": "오래된순",
+  "Specific date": "지정날짜"
 }

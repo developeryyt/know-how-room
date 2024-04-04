@@ -1,7 +1,8 @@
 import KnowHowList from "../knowhow/KnowHowList.jsx";
 import styled from "styled-components";
 import tw from "twin.macro";
-import ListWrapper from "../list/ListWrapper.jsx";
+import ListWrapper from "../list/ListWrapper";
+import {Outlet} from "react-router-dom";
 
 
 const PageWrapper = styled.section`
@@ -12,17 +13,18 @@ const Home = () => {
 
 
     return (
-        <PageWrapper>
-            {/*  TODO: 데이트 피커 (날짜별로 보기) */}
-            {/*  TODO: 조회수  */}
+        <>
+            <PageWrapper>
+                {/*  TODO: 데이트 피커 (날짜별로 보기) */}
+                {/*  TODO: 조회수  */}
 
-            {/* TODO: 리스트   */}
-            {/*<KnowHowList />*/}
+                {/* TODO: 리스트   */}
+                {/*<KnowHowList />*/}
 
-            <ListWrapper />
+                <ListWrapper />
 
-
-        </PageWrapper>
+            </PageWrapper>
+        </>
     )
 }
 

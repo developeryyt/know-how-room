@@ -1,4 +1,5 @@
 import DatePick from "./DatePick.jsx";
+import List from "./List.jsx";
 
 const ListWrapper = () => {
 
@@ -6,6 +7,7 @@ const ListWrapper = () => {
     return (
         <>
             <DatePick />
+            <List />
         </>
     )
 }
