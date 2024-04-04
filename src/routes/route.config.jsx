@@ -1,9 +1,10 @@
 import {lazy} from "react";
-import MakeKnowhow from "../pages/knowhow/MakeKnowhow.jsx";
+import Loadable from "./Loadable.jsx";
 
-const HomePage = lazy(() => import('../pages/home/Home.page'))
-const LoginPage = lazy(() => import('../pages/login/Login.page'))
-const SignUpPage = lazy(() => import('../pages/signup/SignUp.Page'))
+const HomePage = Loadable(lazy(() => import('../pages/home/Home.page')))
+const LoginPage = Loadable(lazy(() => import('../pages/login/Login.page')))
+const SignUpPage = Loadable(lazy(() => import('../pages/signup/SignUp.Page')))
+const MakeKnowHow = Loadable(lazy(() => import('../pages/knowhow/MakeKnowhow')))
 
 
 
@@ -17,7 +18,7 @@ export const ROUTES_CONFIG = [
     {
         id: 'KNOWHOWPAGE',
         path: '/know-how',
-        element: <MakeKnowhow/>,
+        element: <MakeKnowHow />,
         desc: 'MY KNOW-HOW'
     },
     {

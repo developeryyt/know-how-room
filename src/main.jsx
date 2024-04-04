@@ -54,18 +54,16 @@ const App = () => {
 
     return (
         <div className='App'>
-            <Suspense fallback={<div>Loading...</div>}>
-                <HeaderTemplate/>
-                <div className="container m-auto">
-                    <Routes>
-                        {
-                            ROUTES_CONFIG?.map((route) => {
-                                return <Route key={`route__${route['id']}`} {...route} />
-                            })
-                        }
-                    </Routes>
-                </div>
-            </Suspense>
+            <HeaderTemplate/>
+            <div className="container m-auto">
+                <Routes>
+                    {
+                        ROUTES_CONFIG?.map((route) => {
+                            return <Route key={`route__${route['id']}`} {...route} />
+                        })
+                    }
+                </Routes>
+            </div>
         </div>
     )
 }
