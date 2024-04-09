@@ -9,10 +9,11 @@ const UserAuth = ({children}) => {
     const navigate = useNavigate()
 
     const onLogin = async (id, pw) => {}
+    const onRegister = async () => {}
+
 
     const onLogout = () => {}
 
-    const onRegister = () => {}
 
     const value = useMemo(() => ({
         onLogin,

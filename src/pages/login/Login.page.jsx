@@ -26,7 +26,6 @@ const LoginPage = () => {
                 errors.userPw = '필수 입력값입니다.'
             }
 
-
             return errors;
 
         },
@@ -91,7 +90,6 @@ const LoginPage = () => {
                             </div>
                             {formik.errors.userPw && <div className='text-red-500 text-xs'>*{formik.errors.userPw}</div>}
                         </div>
-
 
 
                         <div className='pb-24 text-right'>

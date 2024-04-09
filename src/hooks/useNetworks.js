@@ -3,33 +3,44 @@ import axios from "axios";
 
 
 
-const baseURL  = `${process.env.REACT_APP_API_BASE_URL}`
+const baseURL  = 'https://api-know-how.com'
 
+class Networks {
 
-const useNetworks = () => {
+    static AXIOS;
 
-    const [data, setData] = useState(null)
-    const [loading, setLoading] = useState(false);
+    constructor() {
+        this.init()
+    }
 
+    init() {
+        Networks.AXIOS = axios.create({
+            baseURL: baseURL,
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+            }
+        })
+    }
 
-    const apiClient = axios.create({
-        baseURL,
-        headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-            ...token && {'Authorization': `Bearer ${token?.token}`},
-        }
-    })
-
-    const axiosController = async (config) => {
-        const { url, method, data } = config
+    static async callAPI (params) {
+        const { method, url, data, token } = params
         return new Promise((resolve, reject) => {
             try {
-                apiClient?.[method.toLowerCase()](url, {
-                    ...data
-                }).then((res) => {
-                    setData(res?.data)
-                    resolve(true)
+                Networks.AXIOS({
+                    method,
+                    url,
+                    data,
+                    headers: {
+                        ...Networks.AXIOS.headers,
+                        ...token && { "Authorization": `Bearer ${token}` }
+                    }
+                }).then((response) => {
+                    if(response.statusCode === 200) {
+                        resolve(response)
+                    }
+                }).catch((err) => {
+                    reject(err)
                 })
 
             }catch(err) {
@@ -38,11 +49,12 @@ const useNetworks = () => {
         })
     }
 
-    // const results = useMemo(() => ({
-    // }), [data])
+}
 
 
-    return [data, axiosController]
+
+const useNetworks = async () => {
+    return await Networks.callAPI()
 }
 
 export default useNetworks
