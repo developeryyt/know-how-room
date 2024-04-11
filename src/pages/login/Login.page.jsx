@@ -4,7 +4,6 @@ import {useNavigate} from "react-router-dom";
 
 
 
-
 const LoginPage = () => {
 
     const navigate = useNavigate()
@@ -14,6 +13,7 @@ const LoginPage = () => {
             userId: '',
             userPw: '',
         },
+        validateOnChange: false,
         validateOnBlur: false,
         validate: (values) => {
             const errors = {}
@@ -41,10 +41,10 @@ const LoginPage = () => {
         }
     })
 
-    const gotoSignupPage = () => {
+
+    const gotoPath = () => {
         navigate('/signup')
     }
-
 
 
     return (
@@ -96,7 +96,7 @@ const LoginPage = () => {
                             <span className='text-12 pr-2 text-gray-500'>혹시 아직 계정이 없으신가요?</span>
                             <button
                                 className='text-14 border-b-1 border-b-blue-600 hover:border-b-red-700'
-                                onClick={gotoSignupPage}
+                                onClick={gotoPath}
                                 type='button'
                             >회원가입</button>
                         </div>

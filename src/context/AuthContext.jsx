@@ -11,9 +11,7 @@ const UserAuth = ({children}) => {
     const onLogin = async (id, pw) => {}
     const onRegister = async () => {}
 
-
     const onLogout = () => {}
-
 
     const value = useMemo(() => ({
         onLogin,
