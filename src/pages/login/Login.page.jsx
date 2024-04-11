@@ -1,11 +1,13 @@
 import {useFormik} from "formik";
 import {memo} from "react";
 import {useNavigate} from "react-router-dom";
+import {useAuth} from "../../context/AuthContext";
 
 
 
 const LoginPage = () => {
 
+    const { onLogin } = useAuth()
     const navigate = useNavigate()
 
     const formik = useFormik({
@@ -34,12 +36,23 @@ const LoginPage = () => {
             setErrors(errors)
 
             if(Object.keys(errors).length === 0) {
-
+                loginHandler()
                 formik.resetForm()
             }
 
         }
     })
+
+    const loginHandler = () => {
+        console.log('login 시도')
+        onLogin({
+            data: {
+                id: formik.values.userId,
+                pw: formik.values.userPw
+            }
+        })
+    }
+
 
 
     const gotoPath = () => {
