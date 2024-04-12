@@ -5,8 +5,7 @@ const HomePage = Loadable(lazy(() => import('../pages/home/Home.page')))
 const LoginPage = Loadable(lazy(() => import('../pages/login/Login.page')))
 const SignUpPage = Loadable(lazy(() => import('../pages/signup/SignUp.Page')))
 const MakeKnowHow = Loadable(lazy(() => import('../pages/knowhow/MakeKnowhow')))
-
-
+const DatesListPage = Loadable(lazy(() => import('../components/dates/DatesListWrapper')))
 
 export const ROUTES_CONFIG = [
     {
@@ -32,6 +31,12 @@ export const ROUTES_CONFIG = [
         path: '/signup',
         element: <SignUpPage />,
         desc: 'signup'
+    },
+    {
+        id: 'CalendarListPage',
+        path: '/calendarlist',
+        element: <DatesListPage />,
+        desc: 'Calendar List'
     }
 ]
 

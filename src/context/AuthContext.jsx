@@ -26,7 +26,9 @@ const UserAuth = ({children}) => {
     }
 
     const onLogout = () => {
-
+        localStorage.removeItem('myToken')
+        localStorage.removeItem('myRefreshToken')
+        navigate('/login')
     }
 
     const value = useMemo(() => ({

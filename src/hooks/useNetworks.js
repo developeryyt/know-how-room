@@ -46,8 +46,7 @@ class Networks {
                 })
 
             }catch(err) {
-                reject(err)
-            }
+                reject(err)}
         })
     }
 
