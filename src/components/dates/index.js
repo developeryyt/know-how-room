@@ -1,3 +1,5 @@
+import {makeAutoObservable} from "mobx";
+
 class DatePicker {
 
     month = [
@@ -15,6 +17,16 @@ class DatePicker {
         'December',
     ]
 
+    day = [
+        '일',
+        '월',
+        '화',
+        '수',
+        '목',
+        '금',
+        '토'
+    ]
+
     #calendarDate = {
         dates: '',
         date: 0,
@@ -29,9 +41,12 @@ class DatePicker {
         year: 0,
     };
 
+    dateArr = [];
+
     constructor() {
+        makeAutoObservable(this)
         this.initCalendar()
-        this.initDates()
+        this.totalDay()
     }
 
     initCalendar() {
@@ -47,23 +62,62 @@ class DatePicker {
             year
         }
 
-    }
-
-    initDates() {
         this.selectedDate = { ...this.#calendarDate }
     }
 
-    nextMonth() {}
+    prevMonth() {
+        this.selectedDate = {
+            ...this.selectedDate,
+            month: this.selectedDate['month'] - 1,
+        }
+        this.updatesDate(this.selectedDate)
+    }
 
-    prevMonth() {}
+    nextMonth() {
+        this.selectedDate = {
+            ...this.selectedDate,
+            month: this.selectedDate['month'] + 1,
+        }
+        this.updatesDate(this.selectedDate)
+    }
 
-    prevYear() {}
 
-    nextYear() {}
+    prevYear() {
+        this.selectedDate = {
+            ...this.selectedDate,
+            year: this.selectedDate['year'] - 1,
+        }
+        this.updatesDate(this.selectedDate)
+    }
 
-    updatesDate() {}
+    nextYear() {
+        this.selectedDate = {
+            ...this.selectedDate,
+            year: this.selectedDate['year'] + 1,
+        }
+        this.updatesDate(this.selectedDate)
+    }
 
+    updatesDate(dates) {
+        this.selectedDate = { ...dates }
+        this.totalDay()
+    }
+
+    totalDay() {
+        this.dateArr = []
+        let totalDay = new Date(this.selectedDate['year'], this.selectedDate['month'], 0).getDate()
+        for(let i = 1; i <= totalDay; i++) {
+            let a = new Date(this.selectedDate['year'], this.selectedDate['month'], i).getDay()
+            this.dateArr.push({
+                dd: i,
+                ee: this.day[a]
+            })
+
+        }
+        return this.dateArr;
+    }
 
 }
+let DATES = new DatePicker();
 
-export default new DatePicker()
+export default DATES

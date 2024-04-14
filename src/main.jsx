@@ -55,7 +55,7 @@ const App = () => {
     return (
         <div className='App'>
             <HeaderTemplate/>
-            <div className="container m-auto">
+            <div className="container">
                 <Routes>
                     {
                         ROUTES_CONFIG?.map((route) => {
