@@ -22,13 +22,6 @@ const DatesListWrapper = observer(() => {
     const InfoWrapper = styled.div`
     `
 
-    // const { month, day, selectedDate, dateArr, nextMonth, prevMonth, prevYear, nextYear} = Dates
-
-    // console.log(new Date().getFullYear(), '현재년도')
-    // console.log(new Date().getMonth() + 1, '현재 달')
-    // console.log(new Date().getDate(), '현재 day')
-    // console.log(new Date(new Date().getFullYear(), new Date().getMonth() + 2, 0).getDate(), '해당 되는 달의 총 day')
-    // console.log(new Date())
 
 
     return (
@@ -46,7 +39,24 @@ const DatesListWrapper = observer(() => {
                         DATES?.prevMonth()
                     }}
                 >{i18n.t("Prev Month")}</button>
-                <div>{DATES.selectedDate?.['year']}.{DATES.selectedDate?.['month'] + 1}</div>
+                <select
+                    onChange={(e) => {
+
+                    }}
+                    defaultValue={DATES.selectedDate?.['year']}
+                >
+                    {
+                        DATES.yearSelect?.map(year => {
+                            return <option value={year} selected={DATES.selectedDate['year'] === year}>{year}년</option>
+                        })
+                    }
+                </select>
+                <select
+                    onChange={() => {}}
+                    defaultValue={DATES.selectedDate?.['month'] + 1}
+                >
+                    <option value={DATES.selectedDate?.['month'] + 1}>{DATES.selectedDate?.['month'] + 1}월</option>
+                </select>
                 <button
                     type='button'
                     onClick={() => {

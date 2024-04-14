@@ -27,6 +27,9 @@ class DatePicker {
         '토'
     ]
 
+    yearSelect = []
+    monthSelect = []
+
     #calendarDate = {
         dates: '',
         date: 0,
@@ -46,6 +49,7 @@ class DatePicker {
     constructor() {
         makeAutoObservable(this)
         this.initCalendar()
+        this.yearOption()
         this.totalDay()
     }
 
@@ -63,6 +67,22 @@ class DatePicker {
         }
 
         this.selectedDate = { ...this.#calendarDate }
+    }
+
+    yearOption() {
+        let first = this.selectedDate['year'] - 5;
+        let last = this.selectedDate['year'] + 5;
+
+        while(true) {
+            if(first < last) {
+                first++
+                this.yearSelect.push(first)
+            }else return false
+        }
+    }
+
+    mothOption() {
+
     }
 
     prevMonth() {
