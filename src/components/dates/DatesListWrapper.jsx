@@ -23,6 +23,8 @@ const DatesListWrapper = observer(() => {
 
     const updateDates = useCallback((e) => {
         const { target: { value, name } } = e;
+
+        // console.log(parseInt(value) + 1)
         DATES.updatesDate({
             ...DATES.selectedDate,
             [name]: parseInt(value)
@@ -74,11 +76,11 @@ const DatesListWrapper = observer(() => {
                     <select
                         name='month'
                         onChange={updateDates}
-                        defaultValue={DATES.selectedDate?.['month']}
+                        defaultValue={DATES.selectedDate['month']}
                     >
                         {
                             DATES.monthSelect?.map((mth) => {
-                                return <option key={`month__${mth}`} value={mth}>{parseInt(mth)}월</option>
+                                return <option key={`month__${mth}`} value={mth}>{parseInt(mth) + 1}월</option>
                             })
                         }
                         {/*<option value={DATES.selectedDate?.['month'] + 1}>{DATES.selectedDate?.['month'] + 1}월</option>*/}
@@ -92,8 +94,6 @@ const DatesListWrapper = observer(() => {
                     >{i18n.t("Next Month")}</button>
 
                 </div>
-
-
             </DateInfo>
             <InfoWrapper>
                 <ul className='px-20 pb-10'>

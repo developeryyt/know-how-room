@@ -29,7 +29,8 @@ class DatePicker {
 
     yearSelect = []
     monthSelect = [
-        '1','2','3','4','5','6','7','8','9','10','11','12'
+        // '1','2','3','4','5','6','7','8','9','10','11','12'
+        '0','1','2','3','4','5','6','7','8','9','10','11'
     ]
 
     #calendarDate = {
@@ -53,6 +54,8 @@ class DatePicker {
         this.initCalendar()
         this.yearOption()
         this.totalDay()
+
+        console.log(toJS(this.selectedDate))
     }
 
     initCalendar() {
@@ -60,6 +63,9 @@ class DatePicker {
         const date = dates.getDate();
         const month = dates.getMonth();
         const year = dates.getFullYear()
+
+        console.log(new Date().getMonth())
+
 
         this.#calendarDate = {
             dates,
@@ -84,7 +90,7 @@ class DatePicker {
         }
     }
 
-    mothOption() {
+    monthOption() {
 
     }
 
@@ -131,9 +137,11 @@ class DatePicker {
 
     totalDay() {
         this.dateArr = []
-        let totalDay = new Date(this.selectedDate['year'], this.selectedDate['month'], 0).getDate()
+        let totalDay = new Date(this.selectedDate['year'], this.selectedDate['month'] + 1, 0).getDate()
+        console.log(totalDay, '해당 달 전체일수')
         for(let i = 1; i <= totalDay; i++) {
             let a = new Date(this.selectedDate['year'], this.selectedDate['month'], i).getDay()
+            // console.log(this.day[a], i)
             this.dateArr.push({
                 dd: i,
                 ee: this.day[a]
