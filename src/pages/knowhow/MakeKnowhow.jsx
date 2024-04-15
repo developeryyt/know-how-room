@@ -33,7 +33,7 @@ const MakeKnowhow = () => {
 
     return (
         <>
-            <SpacingBox classes={{ paddingTop: '20px'}}>
+            <SpacingBox>
                 <Back>
                    <Button
                        onClick={goBack}
@@ -43,11 +43,11 @@ const MakeKnowhow = () => {
                        {t("GO BACK")}
                    </Button>
                 </Back>
-                <SpacingBox classes='py-20'>
+                <div>
                     <Slate editor={editor} initialValue={initialValue}>
                         <Editable />
                     </Slate>
-                </SpacingBox>
+                </div>
             </SpacingBox>
         </>
     );

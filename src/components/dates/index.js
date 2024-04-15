@@ -1,4 +1,4 @@
-import {makeAutoObservable} from "mobx";
+import {makeAutoObservable, toJS} from "mobx";
 
 class DatePicker {
 
@@ -28,7 +28,9 @@ class DatePicker {
     ]
 
     yearSelect = []
-    monthSelect = []
+    monthSelect = [
+        '1','2','3','4','5','6','7','8','9','10','11','12'
+    ]
 
     #calendarDate = {
         dates: '',
@@ -67,6 +69,7 @@ class DatePicker {
         }
 
         this.selectedDate = { ...this.#calendarDate }
+        // console.log(toJS(this.selectedDate))
     }
 
     yearOption() {
@@ -119,9 +122,12 @@ class DatePicker {
     }
 
     updatesDate(dates) {
-        this.selectedDate = { ...dates }
+        console.log('업데이트 dates', toJS(dates))
+        this.selectedDate = { ...this.selectedDate, ...dates }
         this.totalDay()
     }
+
+
 
     totalDay() {
         this.dateArr = []

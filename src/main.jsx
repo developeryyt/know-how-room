@@ -55,7 +55,7 @@ const App = () => {
     return (
         <div className='App'>
             <HeaderTemplate/>
-            <div className="container">
+            <div className="contents m-auto border-red-500 border-1 border-box">
                 <Routes>
                     {
                         ROUTES_CONFIG?.map((route) => {

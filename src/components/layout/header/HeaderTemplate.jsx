@@ -14,6 +14,7 @@ const HeaderTemplate = () => {
             case '/login':
             case '/signup':
             case '/know-how':
+            case '/calendarlist':
                 console.log(pathname)
                 setFlag(true)
                 return
