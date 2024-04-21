@@ -6,7 +6,8 @@ import {Outlet} from "react-router-dom";
 
 
 const PageWrapper = styled.section`
-    ${tw`p-20`}
+  height: 100%;
+  ${tw`p-20`}
 `
 
 const Home = () => {
@@ -20,6 +21,7 @@ const Home = () => {
 
                 {/* TODO: 리스트   */}
                 {/*<KnowHowList />*/}
+
 
                 <ListWrapper />
 

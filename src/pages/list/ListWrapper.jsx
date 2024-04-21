@@ -1,13 +1,14 @@
-import DatePick from "./DatePick.jsx";
-import List from "./List.jsx";
+import DatePick from "./DatePick";
+import List from "./List";
 
 const ListWrapper = () => {
 
 
     return (
         <>
-            <DatePick />
-            <List />
+            {/*<DatePick />*/}
+            {/*<List />*/}
+            
         </>
     )
 }
