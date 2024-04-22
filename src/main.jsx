@@ -69,7 +69,7 @@ const App = () => {
         <div className='App'>
             <HeaderTemplate ref={headerRef}/>
             <div
-                className={`m-auto border-red-500 border-1 border-box`}
+                className={`relative m-auto border-red-500 border-1 border-box`}
                 style={{
                     borderColor: 'blue',
                     height: `calc(100% - ${headerH}px)`
