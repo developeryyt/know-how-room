@@ -14,12 +14,12 @@ export const ROUTES_CONFIG = [
         element: <HomePage />,
         desc: 'Home'
     },
-    // {
-    //     id: 'KNOWHOWPAGE',
-    //     path: '/know-how',
-    //     element: <MakeKnowHow />,
-    //     desc: 'MY KNOW-HOW'
-    // },
+    {
+        id: 'KNOWHOWPAGE',
+        path: '/know-how',
+        element: <MakeKnowHow />,
+        desc: 'MY KNOW-HOW'
+    },
     {
         id: 'LoginPage',
         path: '/login',

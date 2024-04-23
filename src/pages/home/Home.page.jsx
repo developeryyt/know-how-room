@@ -9,7 +9,8 @@ import {useEffect, useLayoutEffect} from "react";
 
 
 const PageWrapper = styled.section`
-  height: 100%;
+    position: relative;
+    height: 100%;
 `
 
 const Home = () => {

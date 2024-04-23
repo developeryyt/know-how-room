@@ -39,25 +39,17 @@ const Aside = () => {
     return (
         !flag ? (
             <aside className='absolute left-0 top-0 bg-#fff'>
-                <div className='text-left'>
-                    <Button
-                        type='button'
-                        className='inline-block !w-auto gap-6'
-                        onClick={handleCategory}
-                    >
-                        <span>카테고리 추가</span>
-                        <span>+</span>
-                    </Button>
-                </div>
-                <ul>
-                    {
-                        cate?.map((tab, idx) => (
-                            <li key={`tabs__${idx}`}>
-                                <input type='text' placeholder='제목없음' />
-                            </li>
-                        ))
-                    }
-                </ul>
+                {/*<div className='text-left'>*/}
+                {/*    <Button*/}
+                {/*        type='button'*/}
+                {/*        className='inline-block !w-auto gap-6'*/}
+                {/*        onClick={handleCategory}*/}
+                {/*    >*/}
+                {/*        <span>노하우 작성하기</span>*/}
+                {/*    </Button>*/}
+                {/*</div>*/}
+                {/*<ul>*/}
+                {/*</ul>*/}
             </aside>
         ) : null
     );

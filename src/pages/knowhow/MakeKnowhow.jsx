@@ -1,12 +1,12 @@
-import { createEditor } from 'slate'
-import {Slate, withReact, Editable } from "slate-react";
+import { createEditor, Editor } from 'slate'
+import {Slate, withReact, Editable, useSlate} from "slate-react";
 import {useMemo} from "react";
 import i18n from "../../utils/i18n.js";
 import {useTranslation} from "react-i18next";
-import Button from "../../components/button/Button.jsx";
+import Button from "../../components/button/Button";
 import {useNavigate} from "react-router-dom";
 import tw from "twin.macro";
-import SpacingBox from "../../components/layout/SpacingBox.jsx";
+import SpacingBox from "../../components/layout/SpacingBox";
 
 
 const initialValue = [
@@ -45,6 +45,10 @@ const MakeKnowhow = () => {
                 </Back>
                 <div>
                     <Slate editor={editor} initialValue={initialValue}>
+                        {/*<Toolbar>*/}
+
+                        {/*</Toolbar>*/}
+
                         <Editable />
                     </Slate>
                 </div>
@@ -52,5 +56,35 @@ const MakeKnowhow = () => {
         </>
     );
 };
+
+const MarkButton = ({}) => {
+    const editor = useSlate()
+    return (
+        <Button
+            active={isMarkActive(editor, format)}
+            onMouseDown={event => {
+                event.preventDefault()
+                toggleMark(editor, format)
+            }}
+        >
+            {/*<Icon>{icon}</Icon>*/}
+        </Button>
+    )
+}
+
+const toggleMark = (editor, format) => {
+    const isActive = isMarkActive(editor, format)
+
+    if (isActive) {
+        Editor.removeMark(editor, format)
+    } else {
+        Editor.addMark(editor, format, true)
+    }
+}
+
+const isMarkActive = (editor, format) => {
+    const marks = Editor.marks(editor)
+    return marks ? marks[format] === true : false
+}
 
 export default MakeKnowhow;
