@@ -14,32 +14,35 @@ const PageWrapper = styled.section`
 
 const Home = () => {
 
-    useLayoutEffect(() => {
-        let main = document.getElementById('zd')
-
-        // console.log($(document))
-
-        // const jquery = document.createElement('script');
-        // jquery.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
-        // jquery.async = true;
-
-        $(document).ready(() => {
-            const script = document.createElement('script');
-            script.src = 'https://cdn.pickkoadmin.com/zaksimdisplay1/ZaksimDisplay.js?spn=11'
-            script.async = true;
-
-            script.onload = function() {
-                main.style.display = 'inline'
-            }
-
-            script.onerror = function() {
-            }
-
-            main.appendChild(script)
-        })
-        // main.appendChild(jquery)
-
-    },[])
+    // useEffect(() => {
+    //     let main = document.getElementById('zd')
+    //
+    //     // console.log($(document))
+    //
+    //     const jquery = document.createElement('script');
+    //     jquery.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
+    //     jquery.async = true;
+    //
+    //     jquery.onload = () => {
+    //         $(document).ready(() => {
+    //             const script = document.createElement('script');
+    //             script.src = 'https://cdn.pickkoadmin.com/zaksimdisplay/ZaksimDisplay.js?spn=11'
+    //             script.async = true;
+    //
+    //             // script.onload = function() {
+    //             //     main.style.display = 'inline'
+    //             // }
+    //
+    //             script.onerror = function() {
+    //             }
+    //
+    //             main.appendChild(script)
+    //         })
+    //     }
+    //
+    //     main.appendChild(jquery)
+    //
+    // },[])
 
 
 
