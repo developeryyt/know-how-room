@@ -36,8 +36,8 @@ const MakeKnowhow = () => {
                     { indent: "+1" },
                 ],
                 ["clean"]
-            ]
-        }
+            ],
+        },
     }
 
 
@@ -53,8 +53,11 @@ const MakeKnowhow = () => {
                        {t("GO BACK")}
                    </Button>
                 </Back>
-                <div>
+                <div className='pt-20'>
                     <ReactQuill
+                        style={{
+                            height: "600px"
+                        }}
                         modules={editorModules}
                         theme="snow"
                     />
