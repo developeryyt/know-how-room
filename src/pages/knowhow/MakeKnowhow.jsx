@@ -7,29 +7,39 @@ import Button from "../../components/button/Button";
 import {useNavigate} from "react-router-dom";
 import tw from "twin.macro";
 import SpacingBox from "../../components/layout/SpacingBox";
+import ReactQuill from "react-quill";
+import 'react-quill/dist/quill.snow.css'
 
-
-const initialValue = [
-    {
-        type: 'paragraph',
-        children: [{ text: 'A line of text in a paragraph.' }],
-    },
-]
 
 const MakeKnowhow = () => {
 
     const { t } = useTranslation()
-    const editor = useMemo(() => withReact(createEditor()), [])
     const navigate = useNavigate()
-
-
-
 
     const goBack = () => {
         navigate(-1)
     }
 
     const Back = tw.div`text-right`
+
+
+    const editorModules = {
+        toolbar: {
+            container: [
+                ["image", "link"],
+                [{ header: [1, 2, 3, 4, 5, false] }],
+                ["bold", "italic", "underline", "strike", "blockquote"],
+                [
+                    { list: "ordered" },
+                    { list: "bullet" },
+                    { indent: "-1" },
+                    { indent: "+1" },
+                ],
+                ["clean"]
+            ]
+        }
+    }
+
 
     return (
         <>
@@ -44,13 +54,10 @@ const MakeKnowhow = () => {
                    </Button>
                 </Back>
                 <div>
-                    <Slate editor={editor} initialValue={initialValue}>
-                        {/*<Toolbar>*/}
-
-                        {/*</Toolbar>*/}
-
-                        <Editable />
-                    </Slate>
+                    <ReactQuill
+                        modules={editorModules}
+                        theme="snow"
+                    />
                 </div>
             </SpacingBox>
         </>
