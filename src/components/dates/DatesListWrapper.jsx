@@ -173,7 +173,9 @@ const DatesListWrapper = observer(() => {
 
                 </div>
                 <div className='reserveDetail'>
-
+                    <div className='w-[300px] h-[300px] bg-red-50 grid'>
+                        <div className='w-[150px] h-[150px] bg-red-600 place-self-center'></div>
+                    </div>
                 </div>
             </InfoWrapper>
         </DateWrapper>
