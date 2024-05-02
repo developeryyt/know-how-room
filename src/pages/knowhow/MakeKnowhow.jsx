@@ -1,6 +1,6 @@
 import { createEditor, Editor } from 'slate'
 import {Slate, withReact, Editable, useSlate} from "slate-react";
-import {useMemo} from "react";
+import {useEffect, useMemo, useState} from "react";
 import i18n from "../../utils/i18n.js";
 import {useTranslation} from "react-i18next";
 import Button from "../../components/button/Button";
@@ -9,12 +9,30 @@ import tw from "twin.macro";
 import SpacingBox from "../../components/layout/SpacingBox";
 import ReactQuill from "react-quill";
 import 'react-quill/dist/quill.snow.css'
-
+import { io } from "socket.io-client";
+import {initializeSocket} from "../../utils/index.js";
 
 const MakeKnowhow = () => {
 
     const { t } = useTranslation()
     const navigate = useNavigate()
+
+    const [val, setVal] = useState('')
+
+    const [socket, setSocket] = useState(null);
+
+    useEffect(() => {
+        const newSocket = initializeSocket();
+        setSocket(newSocket);
+
+        return () => newSocket.close(); // 컴포넌트 언마운트 시 소켓 연결 종료
+    }, []);
+
+
+    const inputHandler = e => {
+        const { target: { value }} = e;
+        setVal(value)
+    }
 
     const goBack = () => {
         navigate(-1)
@@ -41,8 +59,22 @@ const MakeKnowhow = () => {
     }
 
 
+    useEffect(() => {
+        console.log(socket)
+    }, [socket])
+
+
     return (
         <>
+            <div>
+                <input type='text' value={val} onChange={inputHandler} className='border-1' />
+                <button
+                    type='button'
+                    onClick={() => {
+
+                    }}
+                >전송</button>
+            </div>
             <SpacingBox>
                 <Back>
                    <Button
