@@ -11,5 +11,17 @@ export const initializeSocket = () => {
         console.log('Socket disconnected');
     });
 
+    socket.on('hello', (arg) => {
+        console.log(arg)
+    })
+
+    socket.emit('customEvents', () => {})
+
+    socket.on('receiveMessage', (msg) => {
+        console.log('Message Received,,,,,,,', msg)
+    })
+
+
+
     return socket;
 };

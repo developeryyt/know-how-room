@@ -34,6 +34,10 @@ const MakeKnowhow = () => {
         setVal(value)
     }
 
+    const removeVal = () => {
+        setVal('')
+    }
+
     const goBack = () => {
         navigate(-1)
     }
@@ -64,15 +68,19 @@ const MakeKnowhow = () => {
     }, [socket])
 
 
+    const sendMsgHandler = () => {
+        socket.emit('joinRoom', socket.id)
+        socket.emit('sendMessage', val, socket.id)
+        removeVal()
+    }
+
     return (
         <>
             <div>
                 <input type='text' value={val} onChange={inputHandler} className='border-1' />
                 <button
                     type='button'
-                    onClick={() => {
-
-                    }}
+                    onClick={sendMsgHandler}
                 >전송</button>
             </div>
             <SpacingBox>
