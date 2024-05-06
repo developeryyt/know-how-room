@@ -18,6 +18,7 @@ import {configureStore} from "@reduxjs/toolkit";
 
 import Slices from './store'
 import Aside from "./components/aside/Aside.jsx";
+import NumPadContext from "./context/NumPadContext.jsx";
 
 const _root = ReactDOM.createRoot(document.getElementById('root'))
 
@@ -93,9 +94,11 @@ _root.render(
     <ErrorBoundary fallback={<div>ErrorBoundary....</div>}>
         <Router>
             <UserAuth>
-                <Provider store={store}>
-                    <App/>
-                </Provider>
+                <NumPadContext>
+                    <Provider store={store}>
+                        <App/>
+                    </Provider>
+                </NumPadContext>
             </UserAuth>
         </Router>
     </ErrorBoundary>
