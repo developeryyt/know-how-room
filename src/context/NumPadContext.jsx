@@ -1,31 +1,41 @@
-import {createContext, useContext, useMemo, useState} from "react";
+import {createContext, useCallback, useContext, useEffect, useMemo, useState} from "react";
 
 
 const NumberContext = createContext()
 
 
-const NumPadContext = ({ children }) => {
+function numExample(type) {
 
-    const [padType, setPadType] = useState('type1')
-    const [pad, setPad] = useState([])
-
-    switch(padType) {
+    switch(type) {
         case 'type1':
-            setPad([1,2,3,4,5,6,7,8,9,'이전으로', 0, '초기화'])
-            break;
+            return [1,2,3,4,5,6,7,8,9,'삭제', 0, '초기화']
 
         case 'type2':
-            setPad([0,1,2,3,4,5,6,7,8,9, '010', '지우기', '초기화'])
-            break;
+            return [0,1,2,3,4,5,6,7,8,9, '010', '지우기', '초기화']
 
-        case 'type3':
-            break;
+        default:
+            return []
     }
+}
 
-    let val = useMemo(() => ({ pad, setPadType }), [setPadType, padType])
+
+const NumPadContext = ({ children }) => {
+
+    const [padType, setPadType] = useState('')
+    const [pad, setPad] = useState([])
+    const result = useCallback(() => numExample(padType), [padType])
+
+
+    useEffect(() => {
+        setPad(result)
+    }, [padType])
+
+
+    const value = useMemo(() => ({ pad, setPadType }), [padType, pad])
+
 
     return (
-        <NumberContext.Provider value={val}>
+        <NumberContext.Provider value={value}>
             {children}
         </NumberContext.Provider>
     );
