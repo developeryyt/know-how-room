@@ -25,7 +25,7 @@ const NumPadContext = ({ children }) => {
     const [pad, setPad] = useState([])
     const result = useCallback(() => numExample(padType), [padType])
 
-
+    console.log('1')
     useEffect(() => {
         setPad(result)
     }, [padType])

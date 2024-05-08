@@ -1,0 +1,1 @@
+import{f as e,j as r}from"./index-qI9qowM2.js";const m=s=>{const{type:t,onClick:a,className:n,children:o}=s,c=e("btn",n);return r.jsx("button",{type:t,onClick:a,className:c,children:o})};export{m as B};
