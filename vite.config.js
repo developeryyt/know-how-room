@@ -15,5 +15,5 @@ export default defineConfig({
   ],
   resolve: {
     extensions: ['.js', '.ts', '.jsx', '.json', '.tsx']
-  }
+  },
 })
