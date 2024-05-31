@@ -19,6 +19,7 @@ import {configureStore} from "@reduxjs/toolkit";
 import Slices from './store'
 import Aside from "./components/aside/Aside.jsx";
 import NumPadContext from "./context/NumPadContext.jsx";
+import {apiCall} from "./network/ApiController.js";
 
 const _root = ReactDOM.createRoot(document.getElementById('root'))
 
@@ -64,6 +65,8 @@ const App = () => {
     useEffect(() => {
         console.log('헤더 높이', headerH)
     }, [headerH]);
+
+    apiCall()
 
 
     return (
