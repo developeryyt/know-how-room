@@ -1,6 +1,5 @@
 import {lazy} from "react";
 import Loadable from "./Loadable.jsx";
-import NumPad from "../pages/numpad/NumPad.jsx";
 
 const HomePage = Loadable(lazy(() => import('../pages/home/Home.page')))
 const LoginPage = Loadable(lazy(() => import('../pages/login/Login.page')))
@@ -10,7 +9,23 @@ const DatesListPage = Loadable(lazy(() => import('../components/dates/DatesListW
 
 const NumpadPage = Loadable(lazy(() => import('../pages/numpad/NumPad')))
 
-export const ROUTES_CONFIG = [
+export const AuthConfig = [
+    {
+        id: 'LoginPage',
+        path: '/login',
+        element: <LoginPage />,
+        desc: 'login',
+    },
+    {
+        id: 'SignUpPage',
+        path: '/signup',
+        element: <SignUpPage />,
+        desc: 'signup'
+    }
+]
+
+
+export const ALLROUTES_CONFIG = [
     {
         id: 'HomePage',
         path: '/',
@@ -28,18 +43,6 @@ export const ROUTES_CONFIG = [
         path: '/numpad',
         element: <NumpadPage />,
         desc: 'NumPad'
-    },
-    {
-        id: 'LoginPage',
-        path: '/login',
-        element: <LoginPage />,
-        desc: 'login',
-    },
-    {
-        id: 'SignUpPage',
-        path: '/signup',
-        element: <SignUpPage />,
-        desc: 'signup'
     },
     {
         id: 'CalendarListPage',

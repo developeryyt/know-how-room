@@ -1,4 +1,4 @@
-const NotFound = () => {
+const NotFoundPage = () => {
 
     const img = '../assets/notfound.png'
 
@@ -9,4 +9,4 @@ const NotFound = () => {
     );
 };
 
-export default NotFound;
+export default NotFoundPage;
