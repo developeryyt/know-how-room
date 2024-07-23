@@ -3,10 +3,10 @@ import {connect, useDispatch, useSelector} from "react-redux";
 import AuthRoute from "../pages/login/AuthRoute.jsx";
 import {useEffect} from "react";
 
-// const isAuthenticated = (state) => {
-//     if(state.auth.isAuthenticated) return true;
-//     return false;
-// }
+const isAuthenticated = (state) => {
+    if(state.auth.isAuthenticated) return true;
+    return false;
+}
 
 // function withRouter(Component) {
 //
