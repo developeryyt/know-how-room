@@ -2,6 +2,8 @@ import {createContext, useContext, useMemo, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {useNetworks} from "../hooks/useNetworks.js";
 
+import PropTypes from "prop-types";
+
 const AuthContext = createContext()
 
 const UserAuth = ({children}) => {
@@ -43,6 +45,10 @@ const UserAuth = ({children}) => {
             {children}
         </AuthContext.Provider>
     )
+}
+
+UserAuth.propTypes = {
+    children: PropTypes.node,
 }
 
 
