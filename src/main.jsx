@@ -17,7 +17,7 @@ const $root = document.getElementById('root')
 const _APP = createRoot($root)
 
 
-console.log('2')
+
 _APP.render(
     <ErrorBoundary fallback={<div>ErrorBoundary....</div>}>
         <Router>
