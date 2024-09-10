@@ -22,7 +22,6 @@ button {
     margin: 0;
     cursor:pointer;
     box-sizing: border-box;
-
 }
 
 .App {
@@ -38,7 +37,6 @@ button {
 }
 
 
-
 .ipt {
     width: 100%;
     min-height: 34px;
@@ -52,10 +50,7 @@ button {
     @apply outline outline-gray-950 outline-2
 }
 
-.ipt::placeholder {
-
-}
-
+.ipt::placeholder {}
 
 .btn {
     width: 100%;

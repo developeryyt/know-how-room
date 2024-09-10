@@ -1,12 +1,12 @@
 import {lazy} from "react";
-import Loadable from "./Loadable.jsx";
+import Loadable from "@/src/utils/Loadable.jsx";
+
 
 const HomePage = Loadable(lazy(() => import('../pages/home/Home.page')))
 const LoginPage = Loadable(lazy(() => import('../pages/login/Login.page')))
 const SignUpPage = Loadable(lazy(() => import('../pages/signup/SignUp.Page')))
 const MakeKnowHow = Loadable(lazy(() => import('../pages/knowhow/MakeKnowhow')))
 const DatesListPage = Loadable(lazy(() => import('../components/dates/DatesListWrapper')))
-
 const NumpadPage = Loadable(lazy(() => import('../pages/numpad/NumPad')))
 
 export const AuthConfig = [

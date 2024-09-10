@@ -1,22 +1,19 @@
 import React from 'react'
 import {createRoot} from 'react-dom/client'
 import {BrowserRouter as Router} from "react-router-dom";
-
 import {Provider} from "react-redux";
-import {store} from "./store/index.js";
 
 import './utils/i18n'
 
+import {store} from "@/src/store/index.js";
 import {ErrorBoundary} from "react-error-boundary";
-import UserAuth from "./context/AuthContext.jsx";
-import App from "./layout/App.jsx";
 
 import './style/index.css'
+import UserAuth from "@/src/context/AuthContext.jsx";
+import App from "@/src/pages/App.jsx";
 
 const $root = document.getElementById('root')
 const _APP = createRoot($root)
-
-
 
 _APP.render(
     <ErrorBoundary fallback={<div>ErrorBoundary....</div>}>

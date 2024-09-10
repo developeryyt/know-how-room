@@ -3,6 +3,13 @@ import react from '@vitejs/plugin-react'
 import { viteCommonjs } from '@originjs/vite-plugin-commonjs'
 import { config as dotenvConfig } from 'dotenv'
 import { resolve } from 'path'
+import {fileURLToPath, URL} from "url";
+
+
+const getAliasPath = (path) => {
+  return fileURLToPath(new URL(path, import.meta.url));
+};
+
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -26,6 +33,15 @@ export default defineConfig(({ mode }) => {
       'process.env': process.env
     },
     resolve: {
+      alias: {
+        "@": getAliasPath(__dirname, 'src'),
+        "@component": getAliasPath(__dirname, './src/components'),
+        "@layout": getAliasPath(__dirname, './src/layout'),
+        "@store": getAliasPath(__dirname, './src/store'),
+        "@utils": getAliasPath(__dirname, './src/utils'),
+        "@hook": getAliasPath(__dirname, './src/hook'),
+        "@context": getAliasPath(__dirname, './src/context'),
+      },
       extensions: ['.js', '.ts', '.jsx', '.json', '.tsx']
     },
     historyApiFallback: true,

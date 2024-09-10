@@ -12,19 +12,19 @@ const UserAuth = ({children}) => {
     const navigate = useNavigate()
 
     const onLogin = async (data) => {
-        await useNetworks({
-            method: 'POST',
-            url: '/auth/login',
-            ...data,
-        })
+        // await useNetworks({
+        //     method: 'POST',
+        //     url: '/auth/login',
+        //     ...data,
+        // })
     }
 
     const onRegister = async (data) => {
-        await useNetworks({
-            method: 'POST',
-            url: '/auth/register',
-            ...data
-        })
+        // await useNetworks({
+        //     method: 'POST',
+        //     url: '/auth/register',
+        //     ...data
+        // })
     }
 
     const onLogout = () => {
