@@ -9,7 +9,6 @@ const Button = (props) => {
         children
     } = props
 
-
     const classes = classNames('btn', className)
 
     return (

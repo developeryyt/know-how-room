@@ -5,12 +5,13 @@ import {Provider} from "react-redux";
 
 import './utils/i18n'
 
-import {store} from "@/src/store/index.js";
+
 import {ErrorBoundary} from "react-error-boundary";
 
 import './style/index.css'
-import UserAuth from "@/src/context/AuthContext.jsx";
-import App from "@/src/pages/App.jsx";
+import App from "@/pages/App.jsx";
+import UserAuth from "@/context/AuthContext.jsx";
+
 
 const $root = document.getElementById('root')
 const _APP = createRoot($root)

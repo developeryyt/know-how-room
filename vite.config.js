@@ -34,13 +34,14 @@ export default defineConfig(({ mode }) => {
     },
     resolve: {
       alias: {
-        "@": getAliasPath(__dirname, 'src'),
+        "@": resolve(__dirname, 'src'),
         "@component": getAliasPath(__dirname, './src/components'),
         "@layout": getAliasPath(__dirname, './src/layout'),
         "@store": getAliasPath(__dirname, './src/store'),
         "@utils": getAliasPath(__dirname, './src/utils'),
         "@hook": getAliasPath(__dirname, './src/hook'),
         "@context": getAliasPath(__dirname, './src/context'),
+        "@pages": getAliasPath(__dirname, './src/pages'),
       },
       extensions: ['.js', '.ts', '.jsx', '.json', '.tsx']
     },
