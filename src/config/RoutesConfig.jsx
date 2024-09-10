@@ -9,34 +9,25 @@ const MakeKnowHow = Loadable(lazy(() => import('../pages/knowhow/MakeKnowhow')))
 const DatesListPage = Loadable(lazy(() => import('../components/dates/DatesListWrapper')))
 
 
-export const AuthConfig = [
+export const AuthConf = [
     {
         id: 'LoginPage',
-        path: '/login',
+        path: 'login',
         element: <LoginPage />,
-        desc: 'login',
     },
     {
         id: 'SignUpPage',
-        path: '/signup',
+        path: 'signup',
         element: <SignUpPage />,
-        desc: 'signup'
     }
 ]
 
 
-export const ALLROUTES_CONFIG = [
+export const ContentsConf = [
     {
         id: 'KNOWHOWPAGE',
         path: '/know-how',
         element: <MakeKnowHow />,
-        desc: 'MY KNOW-HOW'
     },
-    {
-        id: 'CalendarListPage',
-        path: '/calendarlist',
-        element: <DatesListPage />,
-        desc: 'Calendar List'
-    }
 ]
 

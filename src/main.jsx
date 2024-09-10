@@ -11,7 +11,7 @@ import {ErrorBoundary} from "react-error-boundary";
 import './style/index.css'
 import App from "@/pages/App.jsx";
 import UserAuth from "@/context/AuthContext.jsx";
-
+import { store } from "@/store/index.js";
 
 const $root = document.getElementById('root')
 const _APP = createRoot($root)

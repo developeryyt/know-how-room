@@ -1,30 +1,46 @@
 import {useEffect} from "react";
-import {Outlet, Routes, useNavigate} from "react-router-dom";
+import {Outlet, Route, Routes, useNavigate} from "react-router-dom";
 
 import Header from "@/pages/common/layout/header/Header.jsx";
 import NavBar from "@/pages/common/layout/nav/NavBar.jsx";
 import Footer from "@/pages/common/layout/footer/Footer.jsx";
+import {AuthConf, ContentsConf} from "@/config/RoutesConfig.jsx";
 
+function Routing(list) {
 
+    const navigate = useNavigate()
 
+    useEffect(() => {
+        if(!localStorage.getItem('token')) navigate('/login')
+    }, []);
 
-
-const RouterConfig = () => {
 
     return (
         <Routes>
+            {
+                list?.map((route) => {
+                    const { id, path, element } = route;
+                    return (
+                        <Route key={id} path={path} element={element} />
+                    )
+                })
+            }
         </Routes>
     )
 }
 
+
+const AuthChecker = () => {
+    return Routing(AuthConf)
+}
+
+const Contents = () => {
+    return Routing(ContentsConf)
+}
+
 const App = () => {
 
-    const navigate= useNavigate()
-
-    useEffect(() => {
-        navigate('/login')
-    }, [])
-
+    if(!localStorage.getItem('token')) return <AuthChecker/>
 
     return (
         <>
@@ -33,7 +49,7 @@ const App = () => {
                 <NavBar />
                 <div className='container'>
                     <div className='inner'>
-                        <Outlet />
+                        <Contents />
                     </div>
                 </div>
                 <Footer />
