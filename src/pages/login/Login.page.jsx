@@ -32,6 +32,9 @@ const LoginPage = () => {
 
         },
         onSubmit: async (values, { setErrors }) => {
+
+            console.log({ values })
+
             const errors = formik.validateField({ ...values })
             setErrors(errors)
 
