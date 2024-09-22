@@ -1,8 +1,5 @@
-import SpacingBox from "../../components/layout/SpacingBox.jsx";
 import {Link} from "react-router-dom";
 import {format} from "date-fns";
-
-import dummy from '../../assets/img_dummy.jpg'
 
 const List = () => {
 
@@ -82,30 +79,28 @@ const List = () => {
 
 
     return (
-        <SpacingBox classes={{ paddingTop: '20px' }}>
-            <ul className='grid gap-14 lg:grid-cols-3 md:grid-cols-2 sm: grid-cols-1'>
-                {
-                    store?.map((list) => {
-                        return (
-                            <li key={list['id']} className='min-h-[240px] border-box'>
-                                <Link to={`/detail/${list['id']}`} className='block'>
-                                    <div>
-                                        <div className='thumbNail'>
-                                            <img src={dummy} alt='썸네일' className='w-full h-full align-middle object-cover'/>
-                                        </div>
-                                        <dl className='px-6 py-6 border-b border-l border-r border-1 border-box'>
-                                            <dt className='text-18 font-[600] text-[#212529] pb-5'>{list['title']}</dt>
-                                            <dd className='text-14 truncate text-[#495057] pb-6'>{list['desc']['conts']}</dd>
-                                            <dd className='text-12 text-[#868e96]'>최종수정알: {list['desc']['itCreate']}</dd>
-                                        </dl>
+        <ul className='grid gap-14 lg:grid-cols-3 md:grid-cols-2 sm: grid-cols-1'>
+            {
+                store?.map((list) => {
+                    return (
+                        <li key={list['id']} className='min-h-[240px] border-box'>
+                            <Link to={`/detail/${list['id']}`} className='block'>
+                                <div>
+                                    <div className='thumbNail'>
+                                        <img src={dummy} alt='썸네일' className='w-full h-full align-middle object-cover'/>
                                     </div>
-                                </Link>
-                            </li>
-                        )
-                    })
-                }
-            </ul>
-        </SpacingBox>
+                                    <dl className='px-6 py-6 border-b border-l border-r border-1 border-box'>
+                                        <dt className='text-18 font-[600] text-[#212529] pb-5'>{list['title']}</dt>
+                                        <dd className='text-14 truncate text-[#495057] pb-6'>{list['desc']['conts']}</dd>
+                                        <dd className='text-12 text-[#868e96]'>최종수정알: {list['desc']['itCreate']}</dd>
+                                    </dl>
+                                </div>
+                            </Link>
+                        </li>
+                    )
+                })
+            }
+        </ul>
     );
 };
 

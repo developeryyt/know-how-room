@@ -1,20 +1,16 @@
-import { createEditor, Editor } from 'slate'
-import {Slate, withReact, Editable, useSlate} from "slate-react";
-import {useEffect, useMemo, useState} from "react";
-import i18n from "../../utils/i18n.js";
+import {Editor} from 'slate'
+import {useSlate} from "slate-react";
+import {useEffect, useState} from "react";
 import {useTranslation} from "react-i18next";
 import Button from "../../components/button/Button";
 import {useNavigate} from "react-router-dom";
 import tw from "twin.macro";
-import SpacingBox from "../../components/layout/SpacingBox";
 import ReactQuill from "react-quill";
 import 'react-quill/dist/quill.snow.css'
-import { io } from "socket.io-client";
-import {initializeSocket} from "../../utils/index.js";
 
 const MakeKnowhow = () => {
 
-    const { t } = useTranslation()
+    const {t} = useTranslation()
     const navigate = useNavigate()
 
     const [val, setVal] = useState('')
@@ -30,7 +26,7 @@ const MakeKnowhow = () => {
 
 
     const inputHandler = e => {
-        const { target: { value }} = e;
+        const {target: {value}} = e;
         setVal(value)
     }
 
@@ -49,13 +45,13 @@ const MakeKnowhow = () => {
         toolbar: {
             container: [
                 ["image", "link"],
-                [{ header: [1, 2, 3, 4, 5, false] }],
+                [{header: [1, 2, 3, 4, 5, false]}],
                 ["bold", "italic", "underline", "strike", "blockquote"],
                 [
-                    { list: "ordered" },
-                    { list: "bullet" },
-                    { indent: "-1" },
-                    { indent: "+1" },
+                    {list: "ordered"},
+                    {list: "bullet"},
+                    {indent: "-1"},
+                    {indent: "+1"},
                 ],
                 ["clean"]
             ],
@@ -77,32 +73,31 @@ const MakeKnowhow = () => {
     return (
         <>
             <div>
-                <input type='text' value={val} onChange={inputHandler} className='border-1' />
+                <input type='text' value={val} onChange={inputHandler} className='border-1'/>
                 <button
                     type='button'
                     onClick={sendMsgHandler}
-                >전송</button>
+                >전송
+                </button>
             </div>
-            <SpacingBox>
-                <Back>
-                   <Button
-                       onClick={goBack}
-                       type='button'
-                       className='inline-block !w-auto rounded-full bg-white px-2.5 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50'
-                   >
-                       {t("GO BACK")}
-                   </Button>
-                </Back>
-                <div className='pt-20'>
-                    <ReactQuill
-                        style={{
-                            height: "600px"
-                        }}
-                        modules={editorModules}
-                        theme="snow"
-                    />
-                </div>
-            </SpacingBox>
+            <Back>
+                <Button
+                    onClick={goBack}
+                    type='button'
+                    className='inline-block !w-auto rounded-full bg-white px-2.5 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50'
+                >
+                    {t("GO BACK")}
+                </Button>
+            </Back>
+            <div className='pt-20'>
+                <ReactQuill
+                    style={{
+                        height: "600px"
+                    }}
+                    modules={editorModules}
+                    theme="snow"
+                />
+            </div>
         </>
     );
 };
