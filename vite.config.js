@@ -47,7 +47,7 @@ export default defineConfig(({ mode }) => {
     },
     historyApiFallback: true,
     server: {
-      port: 5173,
+      port: 4000,
       watch: {
         ignored: ['**/node_modules', '**/build']
       }
