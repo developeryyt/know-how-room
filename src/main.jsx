@@ -5,7 +5,6 @@ import {Provider} from "react-redux";
 
 import './utils/i18n'
 
-
 import {ErrorBoundary} from "react-error-boundary";
 
 import './style/index.css'
